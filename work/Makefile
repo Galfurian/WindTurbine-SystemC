@@ -23,9 +23,14 @@ SRCS =  ../src/battery_voc.cpp ../src/battery_converter.cpp \
 	../src/pv_converter.cpp ../src/pv_panel.cpp \
 	../src/wind_turbine.cpp ../src/wind_inverter.cpp \
 	../src/house1.cpp ../src/house2.cpp ../src/house5.cpp\
- 	../src/cti_bus.cpp ../src/main.cpp
+	../src/turbine.cpp ../src/environment.cpp \
+	../src/aerodynamic.cpp ../src/generator.cpp \
+	../src/mechanical.cpp ../src/mechanical_tdf.cpp \
+	../src/mechanical_lsf.cpp ../src/generator_Te.cpp \
+	../src/generator_lsf.cpp ../src/generator_eq.cpp \
+	../src/wind_turbine.cpp ../src/mechanical_delay.cpp \
+        ../src/cti_bus.cpp ../src/main.cpp
 
-#../src/main.cpp
 
 OBJS = $(SRCS:../src/%.cpp=%.o)
 

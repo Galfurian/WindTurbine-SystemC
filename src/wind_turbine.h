@@ -1,24 +1,37 @@
 #include "systemc-ams.h"
-#include "tstep.h"
-#include "math.h"
+#include "environment.h"
+#include "turbine.h"
 
+// Wind turbine model top model = turbine model + environment model
 
-SCA_TDF_MODULE (windturbine)
-{  
+SC_MODULE(windturbine){
+
+  sca_tdf::sca_out<double> power; //Output power 
+    
+  //sca_tdf::sca_signal<double> Wg, Wm, wind, Te, theta, ddtFdr, ddtFqr, Idr, Iqr, idtFdr, idtFqr;
   
-  sca_tdf::sca_out<double> power,windspeed; 
+  sca_tdf::sca_signal<double> wind;
+  //sc_signal<double> Wm2, Wm3; 
 
-  double wind;
+ 
+  // Instantiation of turbine and environment 
+  turbine * turb;
+  environment * env;
 
-  ifstream in_wind_speed;
 
-  unsigned int t;
+  SC_CTOR(windturbine): power("power"){
 
-  SCA_CTOR(windturbine): power("power"), windspeed("windspeed"),t(0) {}
+  turb = new turbine("turb");
+  env  = new environment("env");
 
-  void set_attributes();
+ 
+  turb->wind(wind); 
+  turb->power(power); 
+  
+  env->wind(wind); 
 
-  void initialize();
+  }
 
-  void processing();
+ void  set_attributes();
+
 };
