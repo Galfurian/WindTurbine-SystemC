@@ -24,13 +24,14 @@ void environment::initialize(){
 
 void environment::processing(){
 
-	if(counter%1000 == 0 && number != 0){
-	  number = number + 1;
-  	  wind.write(speed[number]+0);
+	if(counter%1000 == 0 && number != 0 ){
+  	  wind.write(speed[number]*1.03);
 	  counter++;
 	}else{
-	  wind.write(speed[number]+0);
 	  counter++;
+	  wind.write(speed[number]*1.03);
+	  if (counter % 1000 == 0)
+		  number++; 
 	}
 
 }

@@ -67,11 +67,33 @@ void pv_panel::processing()
 
 
   if (t == ONEDAY - 1) {
+    cout<<"YUKAI Report: PV panel works correctly until to first day!"<<endl;
+//    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+  if (t == ONEDAY*2 - 1) {
+    cout<<"YUKAI Report: PV panel works correctly until to second day!"<<endl;
+//    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+  if (t == ONEDAY*3 - 1) {
+    cout<<"YUKAI Report: PV panel works correctly until to third day!"<<endl;
+//    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+  if (t == ONEDAY*4 - 1) {
+    cout<<"YUKAI Report: PV panel works correctly until to fourth day!"<<endl;
+//    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+  if (t == ONEDAY*5 - 1) {
+    cout<<"YUKAI Report: PV panel works correctly until to fiveth day!"<<endl;
+//    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+  if (t == ONEDAY*6 - 1) {
     cout<<"YUKAI Report: PV panel works correctly until to the end!"<<endl;
 //    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+  }
+
     top.close();
 
-  }
+  
 
   t++;
 

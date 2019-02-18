@@ -133,7 +133,7 @@ int sc_main(int argc, char* argv[]){
 	
 	
 //	sc_start(LENGTH, sc_core::SC_SEC);
-	sc_start(86400, sc_core::SC_SEC);
+	sc_start(3600*8, sc_core::SC_SEC);
 
 	cout<<"YUKAI Report: The WHOLE SIMULATION LENGTH "<<"====== "<<sc_time_stamp()<<endl;
 	
