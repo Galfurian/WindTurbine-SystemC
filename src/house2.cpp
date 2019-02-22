@@ -23,7 +23,7 @@ void house2::initialize(){
 
 void house2::processing(){
 
-	house2powerfile >> rp >> ap >> pf;
+	house2powerfile >> rp;
 
 //	cout<< rp<<"\t" << ap<<"\t" << pf<<endl;
 //	cout<<rp<<"The real power value"<<endl;
@@ -31,7 +31,7 @@ void house2::processing(){
 //	cout<<"The power factor is"<<pf<<endl;
 
 
-	out.write(5*rp/0.95);// Effciency
+	out.write(6*rp/0.95);// Effciency
 
 
 }

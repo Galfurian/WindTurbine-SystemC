@@ -115,7 +115,7 @@ int sc_main(int argc, char* argv[]){
 //	sca_util::sca_trace(atf,sell,"SELL");
 	
 //	sca_util::sca_trace(atf,Ibatt,"Ibatt");
-//	sca_util::sca_trace(atf,SOC,"SOC");
+	sca_util::sca_trace(atf,SOC,"SOC");
 //	sca_util::sca_trace(atf,Vbatt,"Vbatt");
 //	sca_util::sca_trace(atf,Phouse1,"Phouse1");
 //	sca_util::sca_trace(atf,Phouse2,"Phouse2");
@@ -126,14 +126,14 @@ int sc_main(int argc, char* argv[]){
 //	sca_util::sca_trace(atf,Ipv_cnv,"Pv_current");
 	sca_util::sca_trace(atf,Power_wind,"Power_wind");
 
-//	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
-//	sca_util::sca_trace(atf,Power_pv,"Power_pv");
+	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
+	sca_util::sca_trace(atf,Power_pv,"Power_pv");
 
 //	sc_start();
 	
 	
 //	sc_start(LENGTH, sc_core::SC_SEC);
-	sc_start(3600*8, sc_core::SC_SEC);
+	sc_start(86400*2, sc_core::SC_SEC);
 
 	cout<<"YUKAI Report: The WHOLE SIMULATION LENGTH "<<"====== "<<sc_time_stamp()<<endl;
 	

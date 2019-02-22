@@ -59,7 +59,7 @@ void pv_panel::processing()
   if (Ptop < 0){
   P.write(0);
   }else{  
-  P.write((Ptop * 6 + Pback * 4)*42); 
+  P.write((Ptop * 6 + Pback * 6)*33); 
   }
 
   sun_irradiance.write(Gtop);
@@ -89,9 +89,9 @@ void pv_panel::processing()
   if (t == ONEDAY*6 - 1) {
     cout<<"YUKAI Report: PV panel works correctly until to the end!"<<endl;
 //    cout<<"Simulation ended: "<<" @"<<sc_time_stamp()<<endl;
+    top.close();
   }
 
-    top.close();
 
   
 
