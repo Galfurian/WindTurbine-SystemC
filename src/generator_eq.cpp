@@ -202,6 +202,6 @@ void generator_eq::processing()
   ddtFdr.write(ddtFdr_i); 
   ddtFqr.write(ddtFqr_i); 
   //P.write(power*0.15); 
-  P.write(power*0.15); 
+  P.write(power*0.17); 
   I.write(power/voltage);   
 }

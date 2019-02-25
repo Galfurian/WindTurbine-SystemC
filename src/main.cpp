@@ -103,9 +103,10 @@ int sc_main(int argc, char* argv[]){
 //	sca_util::sca_decimation(1000);
 	//
 	//To store the values during simualtion
-	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "trace.txt" );
+	
+	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "3mins1ms.txt" );
 
-	atf->set_mode(sca_decimation(1000));
+        atf->set_mode(sca_decimation(1));
 
 	//Selecting signals to track
 	//
@@ -115,25 +116,25 @@ int sc_main(int argc, char* argv[]){
 //	sca_util::sca_trace(atf,sell,"SELL");
 	
 //	sca_util::sca_trace(atf,Ibatt,"Ibatt");
-	sca_util::sca_trace(atf,SOC,"SOC");
+//	sca_util::sca_trace(atf,SOC,"SOC");
 //	sca_util::sca_trace(atf,Vbatt,"Vbatt");
 //	sca_util::sca_trace(atf,Phouse1,"Phouse1");
 //	sca_util::sca_trace(atf,Phouse2,"Phouse2");
 //	sca_util::sca_trace(atf,Phouse5,"Phouse5");
 //
-	sca_util::sca_trace(atf,wt.wind,"Wind");
+//	sca_util::sca_trace(atf,wt.wind,"Wind");
 //	sca_util::sca_trace(atf,Iwind_inv,"Wind_current");
 //	sca_util::sca_trace(atf,Ipv_cnv,"Pv_current");
 	sca_util::sca_trace(atf,Power_wind,"Power_wind");
 
-	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
-	sca_util::sca_trace(atf,Power_pv,"Power_pv");
+//	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
+//	sca_util::sca_trace(atf,Power_pv,"Power_pv");
 
 //	sc_start();
 	
 	
 //	sc_start(LENGTH, sc_core::SC_SEC);
-	sc_start(86400*2, sc_core::SC_SEC);
+	sc_start(180, sc_core::SC_SEC);
 
 	cout<<"YUKAI Report: The WHOLE SIMULATION LENGTH "<<"====== "<<sc_time_stamp()<<endl;
 	
