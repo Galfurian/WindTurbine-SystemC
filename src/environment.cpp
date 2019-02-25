@@ -25,11 +25,13 @@ void environment::initialize(){
 void environment::processing(){
 
 	if(counter%1000 == 0 && number != 0 ){
-  	  wind.write(1.03*((speed[number]-2.389)*2.8/(12.366-2.389)+8.0));
+  	  //wind.write(1.03*((speed[number]-2.389)*2.8/(12.366-2.389)+8.0));
+  	  wind.write(1.03*speed[number]);
 	  counter++;
 	}else{
 	  counter++;
-  	  wind.write(1.03*((speed[number]-2.389)*2.8/(12.366-2.389)+8.0));
+  	 //wind.write(1.03*((speed[number]-2.389)*2.8/(12.366-2.389)+8.0));
+  	  wind.write(1.03*speed[number]);
 	  if (counter % 1000 == 0)
 		  number++; 
 	}

@@ -31,7 +31,7 @@ void battery_voc::processing(){
 	
 	
 	//12V 150Ah battery
-	out.write((24.56*pow(tmpsoc,5)-71.5*pow(tmpsoc,4)+78.45*pow(tmpsoc,3)-40.51*pow(tmpsoc,2)+10.23*tmpsoc+4.1)*40);
+	out.write((24.56*pow(tmpsoc,5)-71.5*pow(tmpsoc,4)+78.45*pow(tmpsoc,3)-40.51*pow(tmpsoc,2)+10.23*tmpsoc+4.1)*41);
 	//out2.write(0.0042*exp(-0.07909*tmpsoc)-0.0035);
 	out2.write(0.0005);
 	out3.write(tmpsoc);
