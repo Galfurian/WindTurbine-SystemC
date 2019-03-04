@@ -4,7 +4,7 @@
 void aerodynamic::set_attributes()
 {
   Tw.set_timestep(TIMESTEP);
-//  wind.set_timestep(1,sc_core::SC_SEC);
+ // wind.set_timestep(0.01,sc_core::SC_SEC);
 //  wind.set_rate(0.001);
 }
 

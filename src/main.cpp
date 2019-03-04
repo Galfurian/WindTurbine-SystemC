@@ -104,7 +104,7 @@ int sc_main(int argc, char* argv[]){
 	//
 	//To store the values during simualtion
 	
-	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "3mins1ms.txt" );
+	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "trace.dat" );
 
         atf->set_mode(sca_decimation(1));
 
@@ -122,10 +122,11 @@ int sc_main(int argc, char* argv[]){
 //	sca_util::sca_trace(atf,Phouse2,"Phouse2");
 //	sca_util::sca_trace(atf,Phouse5,"Phouse5");
 //
-//	sca_util::sca_trace(atf,wt.wind,"Wind");
+	sca_util::sca_trace(atf,wt.wind,"Wind");
 //	sca_util::sca_trace(atf,Iwind_inv,"Wind_current");
 //	sca_util::sca_trace(atf,Ipv_cnv,"Pv_current");
 	sca_util::sca_trace(atf,Power_wind,"Power_wind");
+//	sca_util::sca_trace(atf,wt.turb->gener->lsfModule->idtFdr,"Frd");
 
 //	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
 //	sca_util::sca_trace(atf,Power_pv,"Power_pv");
@@ -134,7 +135,7 @@ int sc_main(int argc, char* argv[]){
 	
 	
 //	sc_start(LENGTH, sc_core::SC_SEC);
-	sc_start(180, sc_core::SC_SEC);
+	sc_start(3600, sc_core::SC_SEC);
 
 	cout<<"YUKAI Report: The WHOLE SIMULATION LENGTH "<<"====== "<<sc_time_stamp()<<endl;
 	

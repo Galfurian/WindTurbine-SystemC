@@ -162,10 +162,10 @@ void generator_eq::processing()
     ddtFdr_i = -Rr*Idr_i + S*idtFqr.read(); 
     ddtFqr_i = -Rr*Iqr_i - S*idtFdr.read(); 
     power = Vds * (Ids - Iqs) + Vqs * (Ids + Iqs); 
-	if(power<0){
-	cout<<"Generated power is less than zero! @ "<<sc_time_stamp()<<endl;
-	sc_stop();
-	}
+//	if(power<0){
+//	cout<<"Generated power is less than zero! @ "<<sc_time_stamp()<<endl;
+//	sc_stop();
+//	}
     
 //     printf("S: %lf\n",S); 
 //     printf("Fiqs: %lf\n",Fiqs); 
