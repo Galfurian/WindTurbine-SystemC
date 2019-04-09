@@ -12,7 +12,7 @@ void pv_panel::initialize()
   //unsigned int i;
   //ifstream top, back; 
   
-  top.open("sun_one_week_april.txt");
+  top.open("one_day_sun.txt");
   if (!top) {
     cout << "Cannot open irradiance file.\n"<< endl;
     exit(-1);
@@ -59,7 +59,7 @@ void pv_panel::processing()
   if (Ptop < 0){
   P.write(0);
   }else{  
-  P.write((Ptop * 6 + Pback * 6)*33); 
+  P.write((Ptop * 6 + Pback * 6)*35); 
   }
 
   sun_irradiance.write(Gtop);

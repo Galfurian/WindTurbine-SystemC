@@ -31,7 +31,7 @@ void house5::processing(){
 //	cout<<"The power factor is"<<pf<<endl;
 
 
-	out.write((rp*8)/0.95);// Effciency
+	out.write((rp*7.2)/0.95);// Effciency
 
 }
 

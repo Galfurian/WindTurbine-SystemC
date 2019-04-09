@@ -2,8 +2,8 @@
 #define _IMPERIAL_DEFS_
 
 // timestep 
-//#define TIMESTEP 0.001, sc_core::SC_SEC
-#define TIMESTEP 0.01, sc_core::SC_SEC
+#define TIMESTEP 0.001, sc_core::SC_SEC
+//#define TIMESTEP 60, sc_core::SC_SEC
 
 // voltage
 #define voltage 12

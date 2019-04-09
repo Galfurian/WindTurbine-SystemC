@@ -16,12 +16,12 @@ SC_MODULE (mechanical_lsf)
   
   SC_CTOR(mechanical_lsf): Wm("Wm"), Wg("Wg"), Wmi("Wmi"), Wgi("Wgi"), theta("theta"), ddtWm("ddtWm"), ddtWg("ddtWg"){
     
-    ddtWm_lsf = new sca_lsf::sca_de::sca_source("ddtWm_lsf", 0.001); 
+    ddtWm_lsf = new sca_lsf::sca_de::sca_source("ddtWm_lsf", 1); 
     ddtWm_lsf->inp(ddtWm); 
     ddtWm_lsf->y(inDdtWm); 
     ddtWm_lsf->set_timestep(TIMESTEP);
     
-    wmInteg = new sca_lsf::sca_integ("wmInteg", 0.001, 2.10001);  
+    wmInteg = new sca_lsf::sca_integ("wmInteg", 1, 2.100001);  
     wmInteg->x(inDdtWm); 
     wmInteg->y(idtWm); 
     wmInteg->set_timestep(TIMESTEP);
@@ -41,7 +41,7 @@ SC_MODULE (mechanical_lsf)
     ddtWg_lsf->y(inDdtWg); 
     ddtWg_lsf->set_timestep(TIMESTEP);
     
-    wgInteg = new sca_lsf::sca_integ("wgInteg", 0.001, 2.2192116114);  
+    wgInteg = new sca_lsf::sca_integ("wgInteg", 1, 2.2192116114);  
     wgInteg->x(inDdtWg); 
     wgInteg->y(idtWg); 
     wgInteg->set_timestep(TIMESTEP);
@@ -62,7 +62,7 @@ SC_MODULE (mechanical_lsf)
     addW->y(sumW); 
     addW->set_timestep(TIMESTEP);
     
-    thetaInteg = new sca_lsf::sca_integ("thetaInteg", 0.001, 1.000268);  
+    thetaInteg = new sca_lsf::sca_integ("thetaInteg", 1, 1.000268);  
     thetaInteg->x(sumW); 
     thetaInteg->y(thetaSig); 
     thetaInteg->set_timestep(TIMESTEP);

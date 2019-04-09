@@ -7,8 +7,9 @@ void inverter_wt::set_attributes()
 {
   I.set_timestep(SIM_STEP, sc_core::SC_SEC);
 //  Pwind.set_timestep(SIM_STEP, sc_core::SC_SEC);
-  Pwind.set_timestep(0.01, sc_core::SC_SEC);
-  Pwind.set_rate(100);
+  Pwind.set_timestep(0.001, sc_core::SC_SEC);
+  Pwind.set_rate(1000);
+
 }
 
 void inverter_wt::initialize()
