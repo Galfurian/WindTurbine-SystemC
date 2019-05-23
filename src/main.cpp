@@ -108,9 +108,9 @@ int sc_main(int argc, char* argv[]){
 	//
 	//To store the values during simualtion
 
-	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "trace.dat" );
+	sca_util::sca_trace_file* atf = sca_util::sca_create_tabular_trace_file( "wind.dat" );
 	//
-//	atf->set_mode(sca_decimation(1000));
+	atf->set_mode(sca_decimation(250));
 
 	//Selecting signals to track
 	//
@@ -119,21 +119,21 @@ int sc_main(int argc, char* argv[]){
 	//	sca_util::sca_trace(atf,buy,"BUY");
 	//	sca_util::sca_trace(atf,sell,"SELL");
 
-	sca_util::sca_trace(atf,Ibatt,"Ibatt");
-	sca_util::sca_trace(atf,SOC,"SOC");
-	sca_util::sca_trace(atf,Vbatt,"Vbatt");
+	//	sca_util::sca_trace(atf,Ibatt,"Ibatt");
+	//	sca_util::sca_trace(atf,SOC,"SOC");
+	//	sca_util::sca_trace(atf,Vbatt,"Vbatt");
 	//	sca_util::sca_trace(atf,Phouse1,"Phouse1");
 	//	sca_util::sca_trace(atf,Phouse2,"Phouse2");
 	//	sca_util::sca_trace(atf,Phouse5,"Phouse5");
 	//
-//		sca_util::sca_trace(atf,wt.wind,"Wind");
+		sca_util::sca_trace(atf,wt.wind,"Wind");
 	//	sca_util::sca_trace(atf,Iwind_inv,"Wind_current");
 	//	sca_util::sca_trace(atf,Ipv_cnv,"Pv_current");
-//	sca_util::sca_trace(atf,Power_wind,"Power_wind");
+		sca_util::sca_trace(atf,Power_wind,"Power_wind");
 	//	sca_util::sca_trace(atf,wt.turb->gener->lsfModule->idtFdr,"Frd");
 
-	//	sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
-//	sca_util::sca_trace(atf,Power_pv,"Power_pv");
+	//sca_util::sca_trace(atf,sun_irradiance,"Sun_profile");
+	//sca_util::sca_trace(atf,Power_pv,"Power_pv");
 
 	//	sc_start();
 
