@@ -39,13 +39,14 @@ void battery_voc::processing()
 
     tmpsoc = tmpsoc - deltacurrent - deltafrequency;
 
-
-    // Battery mangagement unit: if the SOC of battery less than 10%, the battery stop to work
-//	if(tmpsoc<=0.1){
-//		cout<<"SOC is less than or equal to 10%: "<<tmpsoc<<" @"<<sc_time_stamp()<<endl;
-//		sc_stop();
-//	}
-
+    // Battery mangagement unit:
+    //  if the SOC of battery less than 10%, the battery stop to working
+    if (tmpsoc <= 0.1)
+    {
+        std::cerr << "SOC is less than or equal to 10%: " << tmpsoc << " @"
+                  << sc_core::sc_time_stamp() << "\n";
+//        sc_stop();
+    }
 
     //12V 150Ah battery
     out.write((24.56 * pow(tmpsoc, 5) - 71.5 * pow(tmpsoc, 4) +

@@ -11,7 +11,6 @@ void environment::set_attributes()
 
 void environment::initialize()
 {
-    int j;
     std::string filename = DATASET_DIR "/one_day_wind.txt";
     windspeed.open(filename.c_str());
     if (!windspeed)
@@ -25,8 +24,6 @@ void environment::initialize()
 
 void environment::processing()
 {
-
-
     if (counter % 1000 == 0)
     {
         windspeed >> speed;
@@ -38,6 +35,4 @@ void environment::processing()
         wind.write(1.03 * speed);
         counter++;
     }
-
-
 }
