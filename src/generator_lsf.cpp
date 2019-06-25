@@ -1,3 +1,3 @@
-#include "imperial_defs.h"
-#include "generator_lsf.h"
+#include "imperial_defs.hpp"
+#include "generator_lsf.hpp"
 
