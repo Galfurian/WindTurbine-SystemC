@@ -1,0 +1,5 @@
+# Ignored directories
+build
+cmake-build-*
+.idea
+# Ignored files
