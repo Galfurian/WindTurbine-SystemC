@@ -49,7 +49,7 @@ int sc_main(int argc, char * argv[])
     //Battery
     batt.I(Ibatt);
     batt.V(Vbatt);
-    batt.SOC(SOC);
+    batt.state_of_charge(SOC);
 
     //Battery converter
     batt_con.in(Vbatt);
