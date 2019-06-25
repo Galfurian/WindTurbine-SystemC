@@ -1,29 +1,33 @@
 #include <systemc-ams>
 
-SCA_TDF_MODULE (aerodynamic)
+class aerodynamic :
+    public sca_tdf::sca_module
 {
-    sca_tdf::sca_out<double> Tw; // torque
-    sca_tdf::sca_in<double> wind; // wind speed
-    sca_tdf::sc_in<double> Wm; // mechanical angular speed
+public:
+    /// Torque
+    sca_tdf::sca_out<double> Tw;
+    /// Wind speed.
+    sca_tdf::sca_in<double> wind;
+    /// Mechanical angular speed.
+    sca_tdf::sc_in<double> Wm;
 
-    SCA_CTOR(aerodynamic) :
-        Tw("Tw"),
-        wind("wind"),
-        Wm("Wm")
-    {}
+    explicit aerodynamic(sc_core::sc_module_name _name);
 
-    void set_attributes();
+    void set_attributes() override;
 
-    void initialize();
+    void initialize() override;
 
-    void processing();
+    void processing() override;
 
 private:
-
-    double ro; // air density
-    double gamma, lambda; // speed ratio
-    double Cp; // power coefficient
-    double torque; // wind torque - internal variable
+    /// Air density
+    double ro;
+    /// Speed ratio
+    double gamma, lambda;
+    /// Power coefficient
+    double Cp;
+    /// Wind torque - internal variable
+    double torque;
     bool first;
     double varWm;
 };
