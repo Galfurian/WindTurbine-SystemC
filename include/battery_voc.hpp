@@ -1,25 +1,32 @@
 #include <systemc-ams>
 #include "tstep.hpp"
 
-SCA_TDF_MODULE(battery_voc)
+class battery_voc :
+    public sca_tdf::sca_module
 {
-    sca_tdf::sca_in<double> in, in2, in3; //SOC, V_lost_C, V_lost_F
-    sca_tdf::sca_out<double> out, out2, out3, out4; //Voc, Resistor, SOC, SOC
+public:
+    /// SOC
+    sca_tdf::sca_in<double> in;
+    /// V_lost_C
+    sca_tdf::sca_in<double> in2;
+    /// V_lost_F
+    sca_tdf::sca_in<double> in3;
+    /// Voc
+    sca_tdf::sca_out<double> out;
+    /// Resistor
+    sca_tdf::sca_out<double> out2;
+    /// SOC
+    sca_tdf::sca_out<double> out3;
+    /// SOC
+    sca_tdf::sca_out<double> out4;
 
+    explicit battery_voc(sc_core::sc_module_name _name);
 
-    SCA_CTOR(battery_voc) :
-        out("out"),
-        out2("out2"),
-        out3("out3"),
-        out4("out4"),
-        tmpsoc(0.9)
-    {}
+    void set_attributes() override;
 
-    void set_attributes();
+    void initialize() override;
 
-    void initialize();
-
-    void processing();
+    void processing() override;
 
 private:
     double tmpsoc;

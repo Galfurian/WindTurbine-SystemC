@@ -1,21 +1,25 @@
 #include <systemc-ams>
 #include "tstep.hpp"
 
-SCA_TDF_MODULE(converter_b)
+class converter_b :
+    public sca_tdf::sca_module
 {
-    //sca_tdf::sca_in<double> in, in2, in3; // Vbatt, Iload, Vbus
-    sca_tdf::sca_in<double> in, in2; // Vbatt, Iload
-    sca_tdf::sca_out<double> out;//Iin;
+public:
+    /// Vbatt
+    sca_tdf::sca_in<double> in;
+    /// Iload
+    sca_tdf::sca_in<double> in2;
+    /// Iin
+    sca_tdf::sca_out<double> out;
+    /// Efficiency
+    //sca_tdf::sca_out<double> eta;
 
-    //sca_tdf::sca_out<double> eta;//efficiency
+    explicit converter_b(sc_core::sc_module_name _name);
 
-    SCA_CTOR(converter_b)
-    {}
+    void set_attributes() override;
 
-    void set_attributes();
+    void initialize() override;
 
-    void initialize();
-
-    // processes to calculate efficiency and battery current load
-    void processing();
+    /// @brief processes to calculate efficiency and battery current load.
+    void processing() override;
 };

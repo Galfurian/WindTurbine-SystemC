@@ -1,45 +1,24 @@
 #include <systemc-ams>
 
-SC_MODULE(battery_char)
+class battery_char :
+    public sc_core::sc_module
 {
-
+public:
     // Interface and internal components declaration
-    sca_tdf::sca_in<double> in, in2, in3; // Resistor, I load current, Voc affected by SOC
-    sca_tdf::sca_out<double> out; //Vbatt
+    // Resistor, I load current, Voc affected by SOC
+    sca_tdf::sca_in<double> in;
+    sca_tdf::sca_in<double> in2;
+    sca_tdf::sca_in<double> in3;
+    // Vbatt
+    sca_tdf::sca_out<double> out;
 
-    sca_eln::sca_tdf::sca_isource * Ibatt;
-    sca_eln::sca_tdf::sca_vsink * Vbatt;
-
-    sca_eln::sca_tdf_vsource * Voc;
-    sca_eln::sca_node n1, n2;
+    sca_eln::sca_tdf::sca_isource i_batt;
+    sca_eln::sca_tdf::sca_vsink v_batt;
+    sca_eln::sca_tdf_vsource voc;
+    sca_eln::sca_node n1;
+    sca_eln::sca_node n2;
     sca_eln::sca_node_ref gnd;
-    sca_eln::sca_tdf::sca_r * Rs;
+    sca_eln::sca_tdf::sca_r rs;
 
-    SC_CTOR(battery_char)
-    {
-        // Voc voltage instantiation
-        Voc = new sca_eln::sca_tdf_vsource("Voc");
-        Voc->inp(in3);
-        Voc->p(n1);
-        Voc->n(gnd);
-        // Internal resistance instantiation
-        Rs = new sca_eln::sca_tdf::sca_r("Rs");
-        Rs->p(n1);
-        Rs->n(n2);
-        Rs->scale = 1.0;
-        Rs->inp(in);
-        //Load current instantiation
-        Ibatt = new sca_eln::sca_tdf::sca_isource("Ibatt");
-        Ibatt->inp(in2);
-        Ibatt->p(n2);
-        Ibatt->n(gnd);
-        //Output voltage of the battery
-        Vbatt = new sca_eln::sca_tdf::sca_vsink("Vbatt");
-        Vbatt->p(n2);
-        Vbatt->n(gnd);
-        Vbatt->outp(out);
-
-    }
-
-
+    explicit battery_char(sc_core::sc_module_name _name);
 };

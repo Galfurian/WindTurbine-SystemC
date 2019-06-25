@@ -1,5 +1,19 @@
 #include "battery_voc.hpp"
 
+battery_voc::battery_voc(sc_core::sc_module_name _name) :
+    sca_tdf::sca_module(_name),
+    in("in"),
+    in2("in2"),
+    in3("in3"),
+    out("out"),
+    out2("out2"),
+    out3("out3"),
+    out4("out4"),
+    tmpsoc(0.9)
+{
+    // Nothing to do.
+}
+
 void battery_voc::set_attributes()
 {
     out.set_timestep(SIM_STEP, sc_core::SC_SEC);
@@ -12,7 +26,6 @@ void battery_voc::initialize()
 {
 
 }
-
 
 void battery_voc::processing()
 {

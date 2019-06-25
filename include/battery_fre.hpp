@@ -1,24 +1,26 @@
 #include <systemc-ams>
 #include "tstep.hpp"
 
-
-SCA_TDF_MODULE(battery_fre)
+class battery_fre :
+    public sca_tdf::sca_module
 {
-    sca_tdf::sca_in<double> in, in2; //I load current. SOC
-    sca_tdf::sca_out<double> out, out2;//V_lost_C, V_lost_F
+public:
+    /// I load current
+    sca_tdf::sca_in<double> in;
+    /// SOC
+    sca_tdf::sca_in<double> in2;
+    /// V_lost_C
+    sca_tdf::sca_out<double> out;
+    /// V_lost_F
+    sca_tdf::sca_out<double> out2;
 
+    explicit battery_fre(sc_core::sc_module_name _name);
 
+    void set_attributes() override;
 
-    SCA_CTOR(battery_fre) :
-        out("out"),
-        out2("out2")
-    {}
+    void initialize() override;
 
-    void set_attributes();
-
-    void initialize();
-
-    void processing();
+    void processing() override;
 
 
 };

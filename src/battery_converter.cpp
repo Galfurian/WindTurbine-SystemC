@@ -1,5 +1,14 @@
 #include "battery_converter.hpp"
 
+converter_b::converter_b(sc_core::sc_module_name _name) :
+    sca_tdf::sca_module(_name),
+    in("in"),
+    in2("in2"),
+    out("out")
+{
+    // Nothing to do.
+}
+
 void converter_b::set_attributes()
 {
     out.set_timestep(SIM_STEP, sc_core::SC_SEC);

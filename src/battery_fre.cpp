@@ -1,5 +1,15 @@
 #include "battery_fre.hpp"
 
+battery_fre::battery_fre(sc_core::sc_module_name _name) :
+    sca_tdf::sca_module(_name),
+    in("in"),
+    in2("in2"),
+    out("out"),
+    out2("out2")
+{
+    // Nothing to do.
+}
+
 void battery_fre::set_attributes()
 {
     out.set_timestep(SIM_STEP, sc_core::SC_SEC);
