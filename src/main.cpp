@@ -7,9 +7,9 @@
 #include "battery_converter.hpp"
 #include "pv_converter.hpp"
 #include "wind_inverter.hpp"
-#include "house1.hpp"
-#include "house2.hpp"
-#include "house5.hpp"
+#include "house.hpp"
+
+#include "defines.hpp"
 
 int sc_main(int argc, char * argv[])
 {
@@ -40,9 +40,9 @@ int sc_main(int argc, char * argv[])
     converter_b batt_con("batt_con");
     converter_pv pv_con("pv_con");
     inverter_wt wt_inv("wt_inv");
-    house1 house1("house1");
-    house2 house2("house2");
-    house5 house5("house5");
+    house house1("house1", DATASET_DIR "/loads/UKLOAD/one_week_h1.txt");
+    house house2("house2", DATASET_DIR "/loads/UKLOAD/one_week_h2.txt");
+    house house5("house5", DATASET_DIR "/loads/UKLOAD/one_week_h5.txt");
     cti_bus cti_bus("cti_bus");
 
     //----------------------Binding-------------------------------------------------

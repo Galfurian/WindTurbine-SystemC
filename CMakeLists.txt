@@ -57,9 +57,7 @@ add_executable(
     src/generator_eq.cpp
     src/generator_lsf.cpp
     src/generator_Te.cpp
-    src/house1.cpp
-    src/house2.cpp
-    src/house5.cpp
+    src/house.cpp
     src/main.cpp
     src/mechanical.cpp
     src/mechanical_delay.cpp

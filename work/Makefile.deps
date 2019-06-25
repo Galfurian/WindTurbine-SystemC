@@ -4043,7 +4043,7 @@ wind_inverter.o: ../src/wind_inverter.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-house1.o: ../src/house1.cpp /usr/include/stdc-predef.h ../src/house1.h \
+house1.o: ../src/house.cpp /usr/include/stdc-predef.h ../src/house1.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
