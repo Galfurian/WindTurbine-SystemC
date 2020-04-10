@@ -8,7 +8,7 @@ OTHER = -Wall -O3
 
 # Use this CFLAGS definition if you need to see debug output
 # CFLAGS = -c -g -Wno-deprecated -Wall -D_DEBUG
-	#../src/turbine.cpp ../src/environment.cpp \
+	#../src/wind_turbine.cpp ../src/environment.cpp \
 	#../src/aerodynamic.cpp ../src/generator.cpp \
 	#../src/mechanical.cpp ../src/mechanical_tdf.cpp \
 	#../src/mechanical_lsf.cpp ../src/generator_Te.cpp \

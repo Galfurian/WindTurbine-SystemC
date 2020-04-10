@@ -1,4 +1,4 @@
-battery_voc.o: ../src/battery_voc.cpp /usr/include/stdc-predef.h \
+battery_voc.o: ../src/battery/battery_voc.cpp /usr/include/stdc-predef.h \
  ../src/battery_voc.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -447,7 +447,7 @@ battery_voc.o: ../src/battery_voc.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-battery_converter.o: ../src/battery_converter.cpp \
+battery_converter.o: ../src/battery/battery_converter.cpp \
  /usr/include/stdc-predef.h ../src/battery_converter.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -897,7 +897,7 @@ battery_converter.o: ../src/battery_converter.cpp \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-battery_char.o: ../src/battery_char.cpp /usr/include/stdc-predef.h \
+battery_char.o: ../src/battery/battery_char.cpp /usr/include/stdc-predef.h \
  ../src/battery_char.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -1345,7 +1345,7 @@ battery_char.o: ../src/battery_char.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-battery_fre.o: ../src/battery_fre.cpp /usr/include/stdc-predef.h \
+battery_fre.o: ../src/battery/battery_fre.cpp /usr/include/stdc-predef.h \
  ../src/battery_fre.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -1794,7 +1794,7 @@ battery_fre.o: ../src/battery_fre.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-battery.o: ../src/battery.cpp /usr/include/stdc-predef.h ../src/battery.h \
+battery.o: ../src/battery/battery.cpp /usr/include/stdc-predef.h ../src/battery.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -2244,7 +2244,7 @@ battery.o: ../src/battery.cpp /usr/include/stdc-predef.h ../src/battery.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/battery_char.h ../src/battery_voc.h ../src/tstep.h \
  ../src/battery_fre.h
-pv_converter.o: ../src/pv_converter.cpp /usr/include/stdc-predef.h \
+pv_converter.o: ../src/photo_voltaic/pv_converter.cpp /usr/include/stdc-predef.h \
  ../src/pv_converter.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -2693,7 +2693,7 @@ pv_converter.o: ../src/pv_converter.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-pv_panel.o: ../src/pv_panel.cpp /usr/include/stdc-predef.h \
+pv_panel.o: ../src/photo_voltaic/pv_panel.cpp /usr/include/stdc-predef.h \
  ../src/pv_panel.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -3142,7 +3142,7 @@ pv_panel.o: ../src/pv_panel.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-wind_turbine.o: ../src/wind_turbine.cpp /usr/include/stdc-predef.h \
+wind_turbine.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/wind_turbine.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -5390,7 +5390,7 @@ house5.o: ../src/house5.cpp /usr/include/stdc-predef.h ../src/house5.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-turbine.o: ../src/turbine.cpp /usr/include/stdc-predef.h ../src/turbine.h \
+turbine.o: ../src/wind_turbine /usr/include/stdc-predef.h ../src/turbine.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -5841,7 +5841,7 @@ turbine.o: ../src/turbine.cpp /usr/include/stdc-predef.h ../src/turbine.h \
  ../src/aerodynamic.h ../src/generator.h ../src/generator_Te.h \
  ../src/generator_lsf.h ../src/imperial_defs.h ../src/generator_eq.h \
  ../src/mechanical.h ../src/mechanical_tdf.h ../src/mechanical_lsf.h
-environment.o: ../src/environment.cpp /usr/include/stdc-predef.h \
+environment.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/environment.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -6290,7 +6290,7 @@ environment.o: ../src/environment.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/tstep.h
-aerodynamic.o: ../src/aerodynamic.cpp /usr/include/stdc-predef.h \
+aerodynamic.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/aerodynamic.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -6739,7 +6739,7 @@ aerodynamic.o: ../src/aerodynamic.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-generator.o: ../src/generator.cpp /usr/include/stdc-predef.h \
+generator.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/generator.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -7189,7 +7189,7 @@ generator.o: ../src/generator.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/generator_Te.h ../src/generator_lsf.h ../src/imperial_defs.h \
  ../src/generator_eq.h
-mechanical.o: ../src/mechanical.cpp /usr/include/stdc-predef.h \
+mechanical.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/mechanical.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -7638,7 +7638,7 @@ mechanical.o: ../src/mechanical.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h \
  ../src/mechanical_tdf.h ../src/mechanical_lsf.h ../src/imperial_defs.h
-mechanical_tdf.o: ../src/mechanical_tdf.cpp /usr/include/stdc-predef.h \
+mechanical_tdf.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/mechanical_tdf.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -8087,7 +8087,7 @@ mechanical_tdf.o: ../src/mechanical_tdf.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-mechanical_lsf.o: ../src/mechanical_lsf.cpp /usr/include/stdc-predef.h \
+mechanical_lsf.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/mechanical_lsf.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -8536,7 +8536,7 @@ mechanical_lsf.o: ../src/mechanical_lsf.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-generator_Te.o: ../src/generator_Te.cpp /usr/include/stdc-predef.h \
+generator_Te.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/generator_Te.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -8985,7 +8985,7 @@ generator_Te.o: ../src/generator_Te.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-generator_lsf.o: ../src/generator_lsf.cpp /usr/include/stdc-predef.h \
+generator_lsf.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/generator_lsf.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -9434,7 +9434,7 @@ generator_lsf.o: ../src/generator_lsf.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-generator_eq.o: ../src/generator_eq.cpp /usr/include/stdc-predef.h \
+generator_eq.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/imperial_defs.h ../src/generator_eq.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -9883,7 +9883,7 @@ generator_eq.o: ../src/generator_eq.cpp /usr/include/stdc-predef.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-wind_turbine.o: ../src/wind_turbine.cpp /usr/include/stdc-predef.h \
+wind_turbine.o: ../src/wind_turbine /usr/include/stdc-predef.h \
  ../src/wind_turbine.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
@@ -10335,7 +10335,7 @@ wind_turbine.o: ../src/wind_turbine.cpp /usr/include/stdc-predef.h \
  ../src/aerodynamic.h ../src/generator.h ../src/generator_Te.h \
  ../src/generator_lsf.h ../src/imperial_defs.h ../src/generator_eq.h \
  ../src/mechanical.h ../src/mechanical_tdf.h ../src/mechanical_lsf.h
-mechanical_delay.o: ../src/mechanical_delay.cpp \
+mechanical_delay.o: ../src/wind_turbine \
  /usr/include/stdc-predef.h ../src/imperial_defs.h \
  ../src/mechanical_delay.h /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
@@ -10784,7 +10784,7 @@ mechanical_delay.o: ../src/mechanical_delay.cpp \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_functions.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_start.h \
  /home/chen/systemc-ams-2.1/src/scams/analysis/ac/sca_ac_noise_start.h
-cti_bus.o: ../src/cti_bus.cpp /usr/include/stdc-predef.h ../src/cti_bus.h \
+cti_bus.o: ../src/city_power_grid.cpp /usr/include/stdc-predef.h ../src/cti_bus.h \
  /home/chen/systemc-ams-2.1/src/systemc-ams.h \
  /home/chen/systemc-2.3.3/include/systemc.h /usr/include/c++/7/cassert \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \

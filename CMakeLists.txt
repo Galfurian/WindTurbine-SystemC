@@ -38,36 +38,39 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O4")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # -----------------------------------------------------------------------------
 # Set executable and its sources.
 # -----------------------------------------------------------------------------
 add_executable(
     ${PROJECT_NAME}
-    src/aerodynamic.cpp
-    src/battery.cpp
-    src/battery_char.cpp
-    src/battery_converter.cpp
-    src/battery_fre.cpp
-    src/battery_voc.cpp
-    src/cti_bus.cpp
-    src/environment.cpp
-    src/generator.cpp
-    src/generator_eq.cpp
-    src/generator_lsf.cpp
-    src/generator_Te.cpp
+    src/wind_turbine/aerodynamic/aerodynamic.cpp
+
+    src/battery/battery.cpp
+    src/battery/battery_char.cpp
+    src/battery/battery_converter.cpp
+    src/battery/battery_fre.cpp
+    src/battery/battery_voc.cpp
+
+    src/wind_turbine/generator/generator.cpp
+    src/wind_turbine/generator/generator_eq.cpp
+    src/wind_turbine/generator/generator_lsf.cpp
+    src/wind_turbine/generator/generator_Te.cpp
+
+    src/city_power_grid.cpp
+    src/wind_turbine/wind.cpp
     src/house.cpp
     src/main.cpp
-    src/mechanical.cpp
-    src/mechanical_delay.cpp
-    src/mechanical_lsf.cpp
-    src/mechanical_tdf.cpp
-    src/pv_converter.cpp
-    src/pv_panel.cpp
-    src/turbine.cpp
+    src/wind_turbine/mechanical/mechanical.cpp
+    src/wind_turbine/mechanical/mechanical_delay.cpp
+    src/wind_turbine/mechanical/mechanical_lsf.cpp
+    src/wind_turbine/mechanical/mechanical_tdf.cpp
+    src/photo_voltaic/pv_converter.cpp
+    src/photo_voltaic/pv_panel.cpp
+    src/wind_turbine/turbine.cpp
     src/wind_inverter.cpp
-    src/wind_turbine.cpp
+    src/wind_turbine/wind_turbine.cpp
 )
 
 target_link_libraries(

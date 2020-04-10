@@ -1,25 +1,31 @@
 #include "wind_inverter.hpp"
 
+WindInverter::WindInverter(sc_core::sc_module_name _name) :
+	sca_tdf::sca_module(_name),
+	I("I"),
+	Pwind("Pwind")
+{
 
+}
 // set_rate for multi time domain
 
-void inverter_wt::set_attributes()
+void WindInverter::set_attributes()
 {
-    I.set_timestep(SIM_STEP, sc_core::SC_SEC);
+	I.set_timestep(SIM_STEP, sc_core::SC_SEC);
 //  Pwind.set_timestep(SIM_STEP, sc_core::SC_SEC);
-    Pwind.set_timestep(0.001, sc_core::SC_SEC);
-    Pwind.set_rate(1000);
+	Pwind.set_timestep(TIMESTEP);
+	Pwind.set_rate(1000);
 
 }
 
-void inverter_wt::initialize()
+void WindInverter::initialize()
 {
 
 }
 
-void inverter_wt::processing()
+void WindInverter::processing()
 {
 
-    I.write((Pwind.read() * 0.95) / VBUS);
+	I.write((Pwind.read() * 0.95) / VBUS);
 
 }

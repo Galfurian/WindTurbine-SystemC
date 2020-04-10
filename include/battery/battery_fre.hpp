@@ -1,25 +1,26 @@
 #include <systemc-ams>
 #include "defines.hpp"
 
-class BatteryConverter :
+class BatteryFrequency :
     public sca_tdf::sca_module
 {
 public:
-    /// Vbatt
+    /// I load current
     sca_tdf::sca_in<double> in;
-    /// Iload
+    /// SOC
     sca_tdf::sca_in<double> in2;
-    /// Iin
+    /// V_lost_C
     sca_tdf::sca_out<double> out;
-    /// Efficiency
-    //sca_tdf::sca_out<double> eta;
+    /// V_lost_F
+    sca_tdf::sca_out<double> out2;
 
-    explicit BatteryConverter(sc_core::sc_module_name _name);
+    explicit BatteryFrequency(sc_core::sc_module_name _name);
 
     void set_attributes() override;
 
     void initialize() override;
 
-    /// @brief processes to calculate efficiency and battery current load.
     void processing() override;
+
+
 };
