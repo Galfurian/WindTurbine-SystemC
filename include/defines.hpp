@@ -56,5 +56,5 @@
 #define REA_ROTOR 0.1761
 // ws - synchronous speed
 #define SYNCH_SPEED  1
-// Xm - mutual reactance
-#define Xm 2.7626
+// MUTUAL_REACTANCE - mutual reactance
+#define MUTUAL_REACTANCE 2.7626

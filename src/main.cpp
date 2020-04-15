@@ -1,4 +1,5 @@
 #include <systemc-ams>
+#include <chrono>
 
 #include "battery/battery.hpp"
 #include "photo_voltaic/pv_panel.hpp"
@@ -101,26 +102,35 @@ int sc_main(int argc, char* argv[])
 	// Set decimantion.
 	atf->set_mode(sca_util::sca_decimation(250));
 	// Selecting signals to track.
-	sca_util::sca_trace(atf, buy, "BUY");
-	sca_util::sca_trace(atf, sell, "SELL");
+//	sca_util::sca_trace(atf, buy, "BUY");
+//	sca_util::sca_trace(atf, sell, "SELL");
 	sca_util::sca_trace(atf, Ibatt, "Ibatt");
 	sca_util::sca_trace(atf, SOC, "SOC");
 	sca_util::sca_trace(atf, Vbatt, "Vbatt");
-	sca_util::sca_trace(atf, Phouse1, "Phouse1");
-	sca_util::sca_trace(atf, Phouse2, "Phouse2");
-	sca_util::sca_trace(atf, Phouse5, "Phouse5");
-	sca_util::sca_trace(atf, wind_turbine.wind_speed, "Wind Speed");
-	sca_util::sca_trace(atf, Iwind_inv, "Wind Current");
-	sca_util::sca_trace(atf, Ipv_cnv, "PV Current");
-	sca_util::sca_trace(atf, Power_wind, "Power_wind");
-	sca_util::sca_trace(atf, wind_turbine.turbine.generator.lsfModule.idtFdr, "Frd");
-	sca_util::sca_trace(atf, sun_irradiance, "Sun Irradiance");
-	sca_util::sca_trace(atf, Power_pv, "PV Power");
+//	sca_util::sca_trace(atf, Phouse1, "Phouse1");
+//	sca_util::sca_trace(atf, Phouse2, "Phouse2");
+//	sca_util::sca_trace(atf, Phouse5, "Phouse5");
+//	sca_util::sca_trace(atf, wind_turbine.wind_speed, "Wind Speed");
+//	sca_util::sca_trace(atf, Iwind_inv, "Wind Current");
+//	sca_util::sca_trace(atf, Ipv_cnv, "PV Current");
+//	sca_util::sca_trace(atf, Power_wind, "Power_wind");
+//	sca_util::sca_trace(atf, wind_turbine.turbine.generator.lsfModule.idtFdr, "Frd");
+//	sca_util::sca_trace(atf, sun_irradiance, "Sun Irradiance");
+//	sca_util::sca_trace(atf, Power_pv, "PV Power");
 
 	// == SIMULATION ==========================================================
+	auto start = std::chrono::steady_clock::now();
 	sc_start(SIMULATED_TIME, sc_core::SC_SEC);
+	auto end = std::chrono::steady_clock::now();
 
-	std::cout << "Report: The WHOLE SIMULATION LENGTH " << "====== " << sc_core::sc_time_stamp() << std::endl;
+	std::cout
+		<< "Report:\n"
+		<< "Simulated Time  : "
+		<< sc_core::sc_time_stamp()
+		<< "\n"
+		<< "Simulation Time : "
+		<< std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() / 1000
+		<< " s \n";
 
 	// == CLOSE TRACES ========================================================
 	sca_util::sca_close_tabular_trace_file(atf);

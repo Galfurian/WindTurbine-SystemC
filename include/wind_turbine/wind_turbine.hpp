@@ -17,7 +17,4 @@ public:
 	Wind wind;
 
 	explicit WindTurbine(sc_core::sc_module_name _name);
-
-	//void set_attributes();
-
 };
