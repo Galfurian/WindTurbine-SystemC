@@ -32,15 +32,13 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 	source_1000_y("source_1000_y"),
 
 #ifdef USE_DELAY
-	Fiqs_delay("Fiqs_delay", sca_core::sca_time(TIMESTEP)),
+	Fiqs_delay("Fiqs_delay"),
 	Fiqs_delay_out("Fiqs_delay_out"),
-	Fids_delay("Fids_delay", sca_core::sca_time(TIMESTEP)),
+	Fids_delay("Fids_delay"),
 	Fids_delay_out("Fids_delay_out"),
 
-	ddtFdr_delay("ddtFdr_delay", sca_core::sca_time(TIMESTEP)),
-	ddtFdr_delay_out("ddtFdr_delay_out"),
-	ddtFqr_delay("ddtFqr_delay", sca_core::sca_time(TIMESTEP)),
-	ddtFqr_delay_out("ddtFqr_delay_out"),
+	ddtFdr_delay("ddtFdr_delay"),
+	ddtFqr_delay("ddtFqr_delay"),
 #endif
 
 	Wg_lsf_source("Wg_lsf_source", 1),
@@ -87,21 +85,39 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 
 	Idr_sink("Idr_sink"),
 	Iqr_sink("Iqr_sink"),
-	ddtFdr_sink("ddtFdr_sink"),
-	ddtFqr_sink("ddtFqr_sink"),
+//	ddtFdr_sink("ddtFdr_sink"),
+//	ddtFqr_sink("ddtFqr_sink"),
 	P_sink("P_sink", 0.17),
 	I_sink("I_sink", 1 / BAT_VOLTAGE)
 {
-//     S =  1 - Wg.read();
-//     Ids =  (Fiqs - 1000)/RES_STATOR;
-//     Iqs = -(Fids + 1000)/RES_STATOR;
-//     Idr_i = (idtFdr.read() - MUTUAL_REACTANCE*Ids)/REA_ROTOR;
-//     Iqr_i = (idtFqr.read() - MUTUAL_REACTANCE*Iqs)/REA_ROTOR;
-//     ddtFdr_i = -RES_ROTOR*Idr_i + S*idtFqr.read();
-//     ddtFqr_i = -RES_ROTOR*Iqr_i - S*idtFdr.read();
-//     Fiqs = REA_STATOR*Iqs + MUTUAL_REACTANCE*Iqr_i;
-//     Fids = REA_STATOR*Ids + MUTUAL_REACTANCE*Idr_i;
-//     power = REF_VOLT_DS * (Ids - Iqs) + REF_VOLT_QS * (Ids - Iqs);
+//	S = 1 - Wg.read();
+//	Ids = (Fiqs - 1000) / RES_STATOR;
+//	Iqs = -(Fids + 1000) / RES_STATOR;
+//	Idr_i = (idtFdr.read() - MUTUAL_REACTANCE * Ids) / REA_ROTOR;
+//	Iqr_i = (idtFqr.read() - MUTUAL_REACTANCE * Iqs) / REA_ROTOR;
+//	ddtFdr_i = -RES_ROTOR * Idr_i + S * idtFqr.read();
+//	ddtFqr_i = -RES_ROTOR * Iqr_i - S * idtFdr.read();
+//	Fiqs = REA_STATOR * Iqs + MUTUAL_REACTANCE * Iqr_i;
+//	Fids = REA_STATOR * Ids + MUTUAL_REACTANCE * Idr_i;
+//	power = REF_VOLT_DS * (Ids - Iqs) + REF_VOLT_QS * (Ids - Iqs);
+
+//	Idr.write(Idr_i);
+//	Iqr.write(Iqr_i);
+//	ddtFdr.write(ddtFdr_i);
+//	ddtFqr.write(ddtFqr_i);
+//	P.write(power * 0.17);
+//	I.write(power / BAT_VOLTAGE);
+
+//	ddtFdr.set_timestep(TIMESTEP);
+//	ddtFqr.set_timestep(TIMESTEP);
+//	Idr.set_timestep(TIMESTEP);
+//	Iqr.set_timestep(TIMESTEP);
+//	idtFdr.set_timestep(TIMESTEP);
+//	idtFqr.set_timestep(TIMESTEP);
+//	P.set_timestep(TIMESTEP);
+//	I.set_timestep(TIMESTEP);
+//	ddtFdr.set_delay(1);
+//	ddtFqr.set_delay(1);
 
 	// == SOURCES =============================================================
 	source_1.y(source_1_y);
@@ -120,7 +136,7 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 	// ==          Wg.read()
 	Wg_lsf_source.inp(Wg);
 	Wg_lsf_source.y(Wg_lsf_source_y);
-	Wg_lsf_source.set_timestep(TIMESTEP);
+//	Wg_lsf_source.set_timestep(TIMESTEP);
 	// == S =  1 - Wg.read();
 	sub0.x1(source_1_y);
 	sub0.x2(Wg_lsf_source_y);
@@ -205,7 +221,8 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 #ifdef USE_DELAY
 	Fiqs_delay.x(Fiqs);
 	Fiqs_delay.y(Fiqs_delay_out);
-	Fiqs_delay.set_timestep(TIMESTEP);
+	Fiqs_delay.delay.set(sca_core::sca_time(TIMESTEP));
+//	Fiqs_delay.set_timestep(TIMESTEP);
 #endif
 
 	// == Fids = REA_STATOR*Ids + MUTUAL_REACTANCE*Idr_i; ===================================
@@ -219,7 +236,8 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 #ifdef USE_DELAY
 	Fids_delay.x(Fids);
 	Fids_delay.y(Fids_delay_out);
-	Fids_delay.set_timestep(TIMESTEP);
+	Fids_delay.delay.set(sca_core::sca_time(TIMESTEP));
+//	Fids_delay.set_timestep(TIMESTEP);
 #endif
 
 	// == power = REF_VOLT_DS * (Ids - Iqs) + REF_VOLT_QS * (Ids - Iqs); ======
@@ -243,54 +261,29 @@ GeneratorEqSys::GeneratorEqSys(sc_core::sc_module_name _name) :
 	// == OUTPUTS =============================================================
 #ifdef USE_DELAY
 	ddtFdr_delay.x(ddtFdr_i);
-	ddtFdr_delay.y(ddtFdr_delay_out);
+	ddtFdr_delay.y(ddtFdr);
+	ddtFdr_delay.delay.set(sca_core::sca_time(TIMESTEP));
 
 	ddtFqr_delay.x(ddtFqr_i);
-	ddtFqr_delay.y(ddtFqr_delay_out);
+	ddtFqr_delay.y(ddtFqr);
+	ddtFqr_delay.delay.set(sca_core::sca_time(TIMESTEP));
 #endif
 
 	Idr_sink.x(Idr_i);
 	Idr_sink.outp(Idr);
-	Idr_sink.set_timestep(TIMESTEP);
+//	Idr_sink.set_timestep(TIMESTEP);
 
 	Iqr_sink.x(Iqr_i);
 	Iqr_sink.outp(Iqr);
-	Iqr_sink.set_timestep(TIMESTEP);
-
-#ifdef USE_DELAY
-	ddtFdr_sink.x(ddtFdr_delay_out);
-#else
-	ddtFdr_sink.x(ddtFdr_i);
-#endif
-	ddtFdr_sink.outp(ddtFdr);
-	ddtFdr_sink.set_timestep(TIMESTEP);
-
-#ifdef USE_DELAY
-	ddtFqr_sink.x(ddtFqr_delay_out);
-#else
-	ddtFqr_sink.x(ddtFqr_i);
-#endif
-	ddtFqr_sink.outp(ddtFqr);
-	ddtFqr_sink.set_timestep(TIMESTEP);
+//	Iqr_sink.set_timestep(TIMESTEP);
 
 	P_sink.x(power);
 	P_sink.outp(P);
-	P_sink.set_timestep(TIMESTEP);
+//	P_sink.set_timestep(TIMESTEP);
 
 	I_sink.x(power);
 	I_sink.outp(I);
-	I_sink.set_timestep(TIMESTEP);
-
-//	ddtFdr.set_timestep(TIMESTEP);
-//	ddtFqr.set_timestep(TIMESTEP);
-//	Idr.set_timestep(TIMESTEP);
-//	Iqr.set_timestep(TIMESTEP);
-//	idtFdr.set_timestep(TIMESTEP);
-//	idtFqr.set_timestep(TIMESTEP);
-//	P.set_timestep(TIMESTEP);
-//	I.set_timestep(TIMESTEP);
-//	ddtFdr.set_delay(1);
-//	ddtFqr.set_delay(1);
+//	I_sink.set_timestep(TIMESTEP);
 }
 
 #else

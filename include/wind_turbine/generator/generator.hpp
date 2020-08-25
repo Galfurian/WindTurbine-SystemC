@@ -15,7 +15,9 @@ public:
 	GeneratorLSF lsfModule;
 	GeneratorEqSys eqModule;
 
-	sca_tdf::sca_signal<double> Idr, idtFdr, idtFqr, Iqr, ddtFdr, ddtFqr;
+	sca_tdf::sca_signal<double> Idr, idtFdr, idtFqr, Iqr;
+
+	sca_lsf::sca_signal ddtFdr, ddtFqr;
 
 	explicit Generator(sc_core::sc_module_name _name);
 };

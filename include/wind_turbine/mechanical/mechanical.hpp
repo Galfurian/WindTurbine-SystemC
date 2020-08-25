@@ -10,12 +10,11 @@ public:
 	sca_tdf::sca_in<double> Tw; // wind torque
 	sca_tdf::sca_in<double> Te; // generator torque
 
-	MechanicalTDF* tdf;
-	MechanicalLSF* lsf;
+	MechanicalTDF tdf;
+	MechanicalLSF lsf;
 
-	sc_core::sc_signal<double> Wmi, Wei, theta2, Wm_delay, theta_delay, Wmi_delay;
+	sc_core::sc_signal<double> Wmi, Wei, theta2;
 	sc_core::sc_signal<double> ddtWm, ddtWg;
-	sca_tdf::sca_signal<double> Wg_delay;
 
 	explicit Mechanical(sc_core::sc_module_name _name);
 };

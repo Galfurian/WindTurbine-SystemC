@@ -9,14 +9,10 @@ class GeneratorEqSys :
 	public sc_core::sc_module {
 public:
 	sca_tdf::sca_in<double> Wg; // generator angular speed
-	sca_tdf::sca_out<double> ddtFdr, ddtFqr; // magnetic flux derivatives
+	sca_lsf::sca_out ddtFdr, ddtFqr; // magnetic flux derivatives
 	sca_tdf::sca_out<double> Idr, Iqr; // stator direct and quadrature axis currents
 	sca_tdf::sca_in<double> idtFdr, idtFqr; // magnetic flux linkage for stator direct and quadrature axis
 	sca_tdf::sca_out<double> P, I; // generated power and current
-
-//	sca_lsf::sca_tdf::sca_source* inFdr, * inFqr; // convert to LSF domain
-//	sca_lsf::sca_integ* fdrInteg, * fqrInteg;
-//	sca_lsf::sca_tdf::sca_sink* outFdr, * outFqr;
 
 	explicit GeneratorEqSys(sc_core::sc_module_name _name);
 
@@ -46,9 +42,7 @@ private:
 	sca_lsf::sca_signal Fids_delay_out;
 
 	sca_lsf::sca_delay ddtFdr_delay;
-	sca_lsf::sca_signal ddtFdr_delay_out;
 	sca_lsf::sca_delay ddtFqr_delay;
-	sca_lsf::sca_signal ddtFqr_delay_out;
 #endif
 
 	// == S =  1 - Wg.read(); =================================================
@@ -106,8 +100,6 @@ private:
 	// == OUTPUTS =============================================================
 	sca_lsf::sca_tdf::sca_sink Idr_sink;
 	sca_lsf::sca_tdf::sca_sink Iqr_sink;
-	sca_lsf::sca_tdf::sca_sink ddtFdr_sink;
-	sca_lsf::sca_tdf::sca_sink ddtFqr_sink;
 	sca_lsf::sca_tdf::sca_sink P_sink;
 	sca_lsf::sca_tdf::sca_sink I_sink;
 };

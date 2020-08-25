@@ -13,6 +13,7 @@ Wind::Wind(sc_core::sc_module_name _name) :
 void Wind::set_attributes()
 {
 	wind_speed.set_timestep(TIMESTEP);
+	wind_speed.set_rate(1000);
 	// wind.set_timestep(60,sc_core::SC_SEC);
 }
 
@@ -29,9 +30,9 @@ void Wind::initialize()
 
 void Wind::processing()
 {
-	if (counter % 1000 == 0) {
+//	if (counter % 1000 == 0) {
 		windspeed_file >> speed;
-	}
+//	}
 	wind_speed.write(1.03 * speed);
 	++counter;
 }
